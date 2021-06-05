@@ -1,5 +1,36 @@
 {
+  "name": "sandbox",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "lint": "eslint 'src/**/*.{js,ts}' --max-warnings 0",
+    "compile": "tsc --project ./tsconfig.json",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "eslint": "^6.5.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-babel-module": "^5.2.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "lint-staged": "^10.5.4",
+    "mocha": "^8.4.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.2"
+  },
+  "lint-staged": {
+    "./**/*.{js(x),ts(x)}": [
+      "eslint --fix --max-warnings 25"
+    ],
+    "./**/*.{json,md,yml}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
-    "typescript": "^4.3.2"
+    "ts-node": "^10.0.0"
   }
 }
