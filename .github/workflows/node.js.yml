@@ -19,14 +19,13 @@ jobs:
     - run: npm test
     - run: npm run build
     - name: deploy
-      uses: noobly314/deploy-with-scp@v1
+      uses: appleboy/scp-action@master
       with:
-        server-ip: 207.246.92.195
-        username: drone
-        ssh-key: ${{ secrets.DEPLOY_KEY }}
-        proxy-server-ip: 104.156.249.245
-        proxy-username: bastion
-        proxy-ssh-key: ${{ secrets.PROXY_KEY }}
-        src: ./dist
-        dest: ./deployment
-
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_USERNAME }}
+        key: ${{ secrets.DEPLOY_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.PROXY_USERNAME }}
+        proxy_key: ${{ secrets.PROXY_KEY }}
+        source: ./dist
+        target: ./deployment
