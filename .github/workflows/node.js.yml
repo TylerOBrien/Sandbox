@@ -18,12 +18,14 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run build
-    - name: Rsync Deployments Action
-      uses: Burnett01/rsync-deployments@4.1
+    - name: deploy
+      uses: appleboy/scp-actions@v0.0.1
       with:
-        switches: -avzr --delete
-        path: ./dist
-        remote_path: /home/drone/deployment
-        remote_host: 207.246.92.195
-        remote_user: drone
-        remote_key: ${{ secrets.DEPLOY_KEY }}
+        host: ${{ secrets.DEPLOY_HOST }}
+        username: ${{ secrets.DEPLOY_USERNAME }}
+        key: ${{ secrets.DEPLOY_KEY }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.PROXY_USERNAME }}
+        proxy_key: ${{ secrets.DEPLOY_KEY }}
+        source: ./dist
+        target: ./deployment
