@@ -19,13 +19,13 @@ jobs:
     - run: npm test
     - run: npm run build
     - name: deploy
-      uses: appleboy/scp-action@v0.0.1
+      uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.DEPLOY_HOST }}
-        username: ${{ secrets.DEPLOY_USERNAME }}
+        host: 207.246.92.195
+        username: drone
         key: ${{ secrets.DEPLOY_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.PROXY_USERNAME }}
+        proxy_host: 104.156.249.245
+        proxy_username: bastion
         proxy_key: ${{ secrets.PROXY_KEY }}
         source: ./dist
         target: ./deployment
