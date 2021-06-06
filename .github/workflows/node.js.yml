@@ -19,7 +19,7 @@ jobs:
     - run: npm test
     - run: npm run build
     - name: deploy
-      uses: appleboy/scp-actions@v0.0.1
+      uses: appleboy/scp-action@v0.0.1
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ${{ secrets.DEPLOY_USERNAME }}
