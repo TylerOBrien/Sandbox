@@ -29,3 +29,4 @@ jobs:
         proxy-ssh-key: ${{ secrets.PROXY_KEY }}
         src: ./dist
         dest: ./deployment
+
