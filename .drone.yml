@@ -32,8 +32,7 @@ steps:
   - name: deploy
     image: appleboy/drone-scp
     settings:
-      host:
-        - 207.246.92.185
+      host: 207.246.92.195
       username: drone
       password:
         from_secret: ssh_password
