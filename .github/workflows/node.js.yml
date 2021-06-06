@@ -19,7 +19,7 @@ jobs:
     - run: npm test
     - run: npm run build
     - name: deploy
-      uses: TylerOBrien/github-action-scp@master
+      uses: TylerOBrien/action-rsync@master
       with:
         host: ${{ secrets.DEPLOY_HOST }}
         user: ${{ secrets.DEPLOY_USERNAME }}
