@@ -19,13 +19,13 @@ jobs:
     - run: npm test
     - run: npm run build
     - name: deploy
-      uses: appleboy/scp-action@master
+      uses: TylerOBrien/github-action-scp@master
       with:
         host: ${{ secrets.DEPLOY_HOST }}
-        username: ${{ secrets.DEPLOY_USERNAME }}
+        user: ${{ secrets.DEPLOY_USERNAME }}
         key: ${{ secrets.DEPLOY_KEY }}
         proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.PROXY_USERNAME }}
+        proxy_user: ${{ secrets.PROXY_USERNAME }}
         proxy_key: ${{ secrets.PROXY_KEY }}
         source: ./dist
-        target: ./deployment
+        destination: ./deployment
