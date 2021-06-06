@@ -36,8 +36,7 @@ steps:
       host:
         - 207.246.92.185
       username: drone
-      key:
-        from_secret: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIADM47OjQ/SluREzfEAJYXpGZd7RziumjFZ9MC1rdXtl
+      key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIADM47OjQ/SluREzfEAJYXpGZd7RziumjFZ9MC1rdXtl
       port: 22
       command_timeout: 2m
       target: /home/drone/deployment
